@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="gbk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*浏览器属性*/
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .box{
+            width: auto;
+            height: 40px;
+            border:2px solid palevioletred;
+            background-color: rgba(255, 192, 203,0.5);
+            padding: 10px;
+        }
+        .stick{
+            width: 40px;
+            height: 4000px;
+            border:2px solid palevioletred;
+            background-color: rgba(255, 192, 203,0.5);
+            padding: 10px;background-origin: padding-box;
+            position: absolute;
+            left: 500px;
+        }
+        .mygo{
+            display: inline;
+            margin: 0px;
+            font-weight: 900;
+        }
+        #anon{
+            color: pink;
+        }
+        #Anon\ Tokyo{
+            color: pink;
+            display: inline;
+            
+        }
+        a{
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /*var声明存在代码提升现象，即所有声明会被提升到所有代码的头部（只是声明，不赋值），再从上到下执行*/
+        var num = 0;
+        console.log(num);
+        /*常见输出方式*/
+        alert("我是弹窗输出");
+        document.write("我是输出到页面");
+        console.log("我是输出到控制台");
+        /*常见数据类型*/
+        //基础数据类型
+        var number = 1;
+        var bool = true;
+        var str = "string";
+        //合成数据类型
+        var mixed = {
+            nam: "name",
+            age: 17,
+            sex: true,
+            job: {
+                first: "bitch",
+                second: "wife",
+            }
+        }
+        /*typeof判断基础数据类型*/
+        console.log(typeof number);
+        console.log(typeof bool);
+        console.log(typeof str);
+        console.log(typeof mixed);
+        //=== 和 !==
+        console.log(10 === "10");//false
+        console.log(10 == "10");//true
+        console.log(10 !== "10");//true
+        console.log(10 != "10");//false
+        /*字符串*/
+        var str1 = "str1字符串一";
+        var str2 = "str2字符串二";
+        var str3;
+        var num10 = 10;
+        //length 返回字符串长度
+        console.log("str1.length=", str1.length);
+        //chatAT(num) 查找字符串中第x个***字符***
+        console.log("the first char in str1=", str1.charAt(0));
+        //concat(str1,str2,...) 合并字符串，不改变原来字符串，可以多个参数
+        str3 = str1.concat(str2, num10);
+        console.log("str1 + str2 + num10=", str3);
+        //也可以直接加法合并字符串
+        str3 = str3 + str3;
+        console.log(str3);
+        //substring(a,b) 返回从a位置到***b-1***位置的子串,参数为负数自动转换成0
+        str3 = str3.substring(0,16);
+        console.log(str3);
+        //substr(a,b) 返回从a位置开始**长度为b***的子串，参数为负数自动转换成0
+        str3 = str3.substr(0,8);
+        console.log(str3);
+        //indexOf(str,n) 返回***子串***从n位置开始第一次出现的首字符位置,不存在则返回-1,无n则从0开始
+        console.log(str3.indexOf('一'));
+        //trim() 删除字符串首尾的空格以及制表符'\t'、'\v',换行符'\n',回车符'\r',不改变原来的字符串
+        //es6中可使用trimEnd 和 trimStart
+        var str4 = " \r trim \n trim \t \v \n"
+        console.log(str4);
+        console.log(str4.trim());
+        //split("str",n) 返回一个以子串str为分割的数组,数组的最大容量为n,无n则包含所有分割成员
+        var str5 = "abcabcabcabc";
+        console.log(str5.split("bc"));
+        console.log(str5.split('',3));
+        console.log(str5.split());
+        
+        /*数组*/
+        var struct ={
+            array0 : [4,5,"girl band cry"],
+            name : "lovelive"
+        }
+        //数组中可以包含所有数据类型
+        var array1 = [1,2,"mygo",struct];
+        //数组中可以嵌套数组
+        var array2 = [3,true,"ave mujica",array1];
+        //数组可以多维定义
+        var array3 = [[0,0],[0,1],[1,0],[1,1]];
+        console.log(array2);
+        //length 返回数组大小
+        console.log(array2.length);
+        console.log(array3.length);
+        //数组的遍历
+        for(var i=0;i<array1.length;i++){
+            console.log("array1的第%d项",i,array1[i]);
+        }
+        for(var i in array3)
+            for(var j in array3[i]){
+                console.log("array3的第%d,%d项",i,j,array3[i][j]);
+                }
+        //Array.isArray(arr) 数组的判定
+        console.log(Array.isArray(array1));
+        //push(x) 往数组末端添加元素x
+        var array4 = [];
+        array4.push("crychic");
+        array4.push("It is mygo!!!!!")
+        console.log(array4);
+        //pop() 取出数组末端元素
+        console.log(array4.pop());
+        console.log(array4);
+        //unshift(x) 往数组首端添加元素x
+        array4.unshift("It is mygo!!!!!");
+        console.log(array4);
+        //shift() 取出数组首端元素
+        console.log(array4.shift());
+        console.log(array4);
+        //join("|") 将**数组**转换成***字符串***,以参数为分割符
+        var array5 = ["It\'s","my","go","!!!!!"];
+        console.log(array5.join());
+        console.log(array5.join(""));
+        console.log(array5.join(" "));
+        //split() 可以再次转回去
+        console.log(array5.join(" ").split(" "));
+        console.log(array5.join("|"));
+        //concat() 返回合并成一个数组，原数组不变,可以多个参数
+        var array6 = ["Hello","Happy"];
+        var array7 = ["World","!",["!","!","!"]];
+        console.log(array6.concat(array7));
+        //reverse() 将原数组翻转
+        console.log(array5.reverse());
+        array5.reverse();
+        //indexOf(x) 返回x元素在数组中第一次出现的位置
+        console.log(array5.indexOf("my"));
+
+        /*函数*/
+        function print(x){
+            console.log(x);
+        }
+        /*对象*/
+        var oneperson = {
+            name : "st",
+            job : ["mygo","crychic","ave mujica"],
+            print_name : function(){
+                console.log(oneperson.name);
+            },
+            set_name : function(x){
+                oneperson.name = x;
+            },
+            friend : {
+                name : "soyo",
+                age : 18,
+            }
+        }
+        oneperson.print_name();
+        oneperson.set_name("Anon");
+        oneperson.print_name();
+
+
+        /*Math对象*/
+        
+        //Math.abs(x) 返回x的绝对值
+        console.log(Math.abs(-100));
+        //Math.max(xn) 返回xn中的最大值
+        //Math.min(xn) 返回xn中的最小值
+        console.log(Math.max(10,20,30,40,50));
+        console.log(Math.min(10,20,30,40,50));
+        //Math.floor(x) 返回x的下取整
+        //Math.ceil(x) 返回x的上取整
+        console.log(Math.floor(16.666666));
+        console.log(Math.ceil(16.666666));
+        //Math.random() 返回一个大于等于0小于1的伪随机数
+        //下面是生成随机整数0~9的方法
+        console.log(Math.floor(Math.random()*10)%10);
+        //下面是生成任意区间的随机数方法
+        function Random_num(minnum,maxnum){
+            return Math.random()*(maxnum-minnum)+minnum;
+        }
+        console.log(Random_num(107,109));
+
+        /*Date对象*/
+        //Date.now() 返回时间戳
+        console.log(Date.now());
+        //时间戳转换成具体日期
+        console.log(Date(Date.now()));
+        var date = new Date(Date.now());
+        //年份
+        console.log(date.getFullYear());
+        //月份
+        console.log(date.getMonth()+1);
+        //日期
+        console.log(date.getDate());
+        //星期
+        console.log(date.getDay());
+        //小时
+        console.log(date.getHours());
+        //分钟
+        console.log(date.getMinutes());
+        //秒
+        console.log(date.getSeconds());
+        //毫秒
+        console.log(date.getMilliseconds());
+        //获取本年剩余天数
+        function getlastDayforYear(){
+            var today = new Date();
+            var endday = new Date(today.getFullYear(),11,31,23,59,59,999);
+            var msPerday = 1000*60*60*24;
+            var result = (endday.getTime()-today.getTime())/msPerday;
+            return Math.floor(result);
+        }
+        console.log(getlastDayforYear());
+    </script>
+
+    <div>Hello</div>
+    <div>World</div>
+    <div class="mygo">Mygo</div>
+    <div class="mygo" id="anon">Anon</div>
+    <p class="mygo">Soyolin</p>
+    <ul name="likki">
+        <ui>likki</ui>
+        <ui>likki</ui>
+        <ui>likki</ui>
+        <ui>likki</ui>
+        <ui>likki</ui>
+        <ui>likki</ui>
+    </ul>
+    
+    <script>
+        /*document对象*/
+
+        /*1、获取元素*/
+        //document.getElementsByTagName("x")[n] 返回所有x标签,若指定了n,则读取第n个x标签,若x为"*"则返回所有标签,以数组的形式储存
+        var divs = document.getElementsByTagName("div");
+        console.log(divs);
+        var paras = document.getElementsByTagName("*");
+        console.log(paras);
+        //document.getElementsByClassName("x")[n] 返回所有class="x"的成员
+        var mygos = document.getElementsByClassName("mygo");
+        console.log(mygos);
+        //document.getElementsByName("x")[n] 返回所有名字为x的成员
+        var likki = document.getElementsByName("likki");
+        console.log(likki);
+        //document.getElementsById("x")[n] 返回id为x的标签
+        var anon = document.getElementById("anon");
+        console.log(anon);
+        //document.querySelector("x") 返回第一个被该css选择器选中的标签
+        var classSelect = document.querySelector(".mygo");
+        console.log(classSelect);
+        //document.querySelectorAll("x") 返回所有被该css选择器选中的标签
+        var MYGO = document.querySelectorAll(".mygo")[1];
+        console.log(MYGO);
+
+
+        /*2、创建元素*/
+        //document.createElement("x") 创建一个x标签
+        var newDiv = document.createElement("div");
+        console.log(newDiv);
+        //document.createTextNode("x") 创建文本内容x
+        var newDivContent = document.createTextNode("MyGO");
+        console.log(newDivContent);
+        //appendChild() 将内容或者子元素放到容器中
+        newDiv.appendChild(newDivContent);
+        console.log(newDiv);
+        //document.createAttribute("x") 创建属性x
+        var newDivClass = document.createAttribute("class");
+        console.log(newDivClass);
+        //value 为属性赋值
+        newDivClass.value = "mygo";
+        console.log(newDivClass);
+        //setAttributeNode() 将属性赋予标签
+        newDiv.setAttributeNode(newDivClass);
+        console.log(newDiv);
+        //将创建的标签添加到页面
+        mygos[1].appendChild(newDiv);
+
+        /*Element对象*/
+        
+        //element.id 可以读取或改变对象id
+        var Anon0 = document.getElementById("anon");
+        console.log(Anon0.id);
+        Anon0.id = "Anon Tokyo";
+        console.log(Anon0.id);
+        //element.className 可以读取或改变对象类名
+        console.log(Anon0.className);
+        Anon0.className = "Chihaya Anon";
+        console.log(Anon0.className);
+        //element.classList.add("x") 可以添加一个类名
+        Anon0.classList.add("mygo");
+        //element.classList.remove("x") 可以移除一个类名
+        Anon0.classList.remove("Chihaya");
+        //element.classList.contains("x") 可以判断是否有类名x
+        console.log(Anon0.classList.contains("Anon"));
+        console.log(Anon0.classList.contains("Chihaya"));
+        //element.classList.toggle("x") 存在类名x则移除，不存在则添加
+        Anon0.classList.toggle("Chihaya");
+        console.log(Anon0.className);
+        //element.innerHTML 可以读取标签，添加赋值可以赋值内容并且能够识别标签
+        console.log(Anon0.innerHTML);
+        var str00 = "<a href='F:\\学习资料\\编程\\前端开发\\HTML+css\\007\\image\\118990878_p0.png'>Anon Tokyo</a>";
+        Anon0.innerHTML = str00;
+        //element.innerText 可以读取标签，添加赋值可以赋值内容但不能识别标签
+        // console.log(Anon0.innerText);
+        // Anon0.innerText = str00;
+        // console.log(Anon0.innerText);
+    </script>
+
+
+    <div class="box"></div>
+    <div class="stick"></div>
+    <div id="blank"></div>
+
+
+    <script>
+        /*Element获取元素位置*/
+        //视口高度,即浏览器高度
+        console.log(document.documentElement.clientHeight);
+        //网页内容总高度
+        console.log(document.body.clientHeight);
+        //滚动高度和宽度
+        console.log(document.documentElement.scrollLeft);
+        console.log(document.documentElement.scrollTop);
+        //宽度和高度，包含padding，不包含margin和border
+        var boxes = document.getElementsByClassName("box")[0];
+        console.log(boxes.clientHeight);
+        console.log(boxes.clientWidth);
+        //宽度和高度，包含padding以及溢出的不可见部分，不包含margin和border
+        console.log(boxes.scrollHeight);
+        console.log(boxes.scrollWidth);
+        //宽度和高度，包含padding和border以及滚动条
+        console.log(boxes.offsetHeight);
+        console.log(boxes.offsetWidth);
+        //到定位父级元素上边界和左边界的距离
+        var sticks = document.getElementsByClassName("stick")[0];
+        console.log(sticks.offsetTop);
+        console.log(sticks.offsetLeft);
+
+        /*设置元素css属性*/
+        var blanks = document.getElementById("blank");
+        blanks.style.width = "400px";
+        blanks.style.height = "400px";
+        blanks.style.backgroundColor = "rgba(255,192,203,0.5)";
+        blanks.style.position = "relative";
+        
+        
+    </script>
+    <script src="./001.js">/*外部文件引入*/</script>
+    
+</body>
+
+</html>

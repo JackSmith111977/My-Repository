@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="gbk">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./002.css">
+</head>
+<body>
+    <div class = "content" >
+        
+        <!--事件处理程序-->
+        
+        <!--1.html级别事件-->
+        <!--onClick 点击事件，事件用js函数实现-->
+        <button class="Button" id="printButton" onclick="clickPrintButton()">printButton</button>
+        <!--2.dom0级别事件-->
+        <button class="Button" id="dom0click">dom0ClickButton</button>
+        <!--3.dom2级别事件-->
+        <button class="Button" id="dom2click">dom2ClickButton</button>
+    </div>
+    <div class="content">
+
+        <!--鼠标事件清单-->
+        
+        <!--单击触发-->
+        <button id="click">click</button>
+        <!--双击触发-->
+        <button id="dblClick">dblClick</button>
+        <!--按下鼠标触发-->
+        <button id="mouseDown">mouseDown</button>
+        <!--松开鼠标触发-->
+        <button id="mouseUp">mouseUp</button>
+        <!--鼠标移动时连续触发-->
+        <button id="mouseMove">mouseMove</button>
+        <!--鼠标进入区域触发，但不包括子节点-->
+        <div class="content" id="mouseEnter">mouseEnter <button>child</button></div>
+        <!--鼠标离开区域触发，但不包括父节点-->
+        <div class="content" id="mouseLeave">mouseLeave <button >child</button></div>
+        <!--鼠标进入区域触发一次，进入子节点再次触发-->
+        <div class="content" id="mouseOver">mouseOver <button>child</button></div>
+        <!--鼠标离开区域触发一次，离开父节点再次触发-->
+        <div class="content" id="mouseOut">mouseOut <button>child</button></div>
+        <!--鼠标滚轮触发-->
+        <button id="wheel">wheel</button>
+    </div>
+
+    <div class="content">
+        <!--event事件对象-->
+
+        <!--event.target 返回触发该事件的元素
+            event.type 返回该事件的类型-->
+        <button id="printEvent">PrintEvent</button>
+        <!--event.preventDefault() 阻止浏览器默认事件触发-->
+        <a href="www.bilibili.com" id="bilibili">www.bilibili.com</a>
+        <!--event.stopPropagation() 阻止事件冒泡传播-->
+        <div class="content" id = "FatherEvent">
+            Father
+            <button id="SonEvent">son</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <!--键盘事件清单-->
+
+        <input type="text" id="username">
+    </div>
+
+    <div class="content">
+        <!--表单事件-->
+
+        <!--input事件-->
+        <!--select事件-->
+        <input type="text" id="inputEvent">
+        <!--change事件-->
+        <input type="text" id="changeEvent">
+        <!--reset事件-->
+        <form id="resetForm" name="myform">
+            <button id="resetBtn">resetBtn</button>
+            <button>submit</button>
+        </form>
+
+        <!--事件代理 即通过子元素触发父元素事件-->
+        <ul id="fatherTag">
+            <li>sontag</li>
+            <li>sontag</li>
+            <p id="sonP">sonP</p>
+
+        </ul>
+    </div>
+    <div class="content">
+
+        <!--滚动事件-->
+        <!--防抖-->
+        <button id="debounceMousemove">debounceMousemove</button>
+    </div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <div class="content"></div>
+    <script src="./002.js"></script>
+</body>
+</html>

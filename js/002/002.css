@@ -1,0 +1,33 @@
+.content{
+    width: auto;
+    height: 50px;
+    background-color: rgba(255, 192, 203,0.5);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2px;
+}
+.Button{
+    width: auto px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 10px;
+}
+button{
+    width: auto px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: 700;
+    border-radius: 10px;
+}
+li{
+    display: inline;
+}
+#sonP{
+    display: inline;
+}
